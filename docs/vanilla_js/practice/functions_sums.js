@@ -10,4 +10,5 @@ function sum(inputs) {
 }
 
 let num = [1, 2, 3, 4, 5];
-console.log(sum(num));
+let sum_function = sum(num);
+console.log(sum_function);
