@@ -25,12 +25,14 @@ const filepath =
   process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
 let inputs = fs.readFileSync(filepath).toString().trim().split("\n");
 
+let first = parseInt(inputs);
 let i = 0;
-let first_sum = Number(inputs[0].charAt(1));
-first_sum = Number(inputs[0].charAt(0)) + first_sum;
-let sum = [];
 
 while (true) {
-  sum.pu;
-  //   if(sum[i])
+  let sum = parseInt(inputs / 10 + (inputs % 10));
+  inputs = (inputs % 10) * 10 + (sum % 10);
+  i++;
+
+  if (first === inputs) break;
 }
+console.log(i);
