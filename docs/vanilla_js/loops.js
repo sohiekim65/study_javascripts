@@ -47,8 +47,8 @@ array1.forEach((element) => console.log(element));
 
 // forEach문을 여러 function으로 변환
 // forEach문 Arrow Function화
-let arrowFunction = (element) => {
-  console.log(element);
+let arrowFunction = (element, index) => {
+  console.log(`${element}, index ${index}`);
 };
 array1.forEach(arrowFunction);
 
