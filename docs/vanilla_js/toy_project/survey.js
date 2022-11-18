@@ -43,19 +43,19 @@ function questions_function(i) {
 
 // 답항 function
 function answer_function(i) {
-  if (questions[i]["questions_uid"] == "Q1") {
+  if (questions["questions_uid"] == "Q1") {
     for (let i = 0; i < 3; i++) {
       console.log(`${answers[i]["example"]}`);
     }
-  } else if (questions[i]["questions_uid"] == "Q2") {
+  } else if (questions["questions_uid"] == "Q2") {
     for (let i = 0; i < 4; i++) {
       console.log(`${answers[i]["example"]}`);
     }
-  } else if (questions[i]["questions_uid"] == "Q3") {
+  } else if (questions["questions_uid"] == "Q3") {
     for (let i = 0; i < 2; i++) {
       console.log(`${answers[i]["example"]}`);
     }
-  } else if (questions[i]["questions_uid"] == "Q4") {
+  } else if (questions["questions_uid"] == "Q4") {
     for (let i = 0; i < 5; i++) {
       console.log(`${answers[i]["example"]}`);
     }
