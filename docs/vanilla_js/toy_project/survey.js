@@ -80,8 +80,8 @@ console.log("------------------ 설문자 선택 ------------------ ");
 // 설문자 선택 조회
 for (let i = 0; i < questions.length; i++) {
   questions_function(i);
-  let answer_value = inputs[i] - 1;
-  console.log(`${answers[answer_value]["example"]}`);
+  let answers_num = inputs[i] - 1;
+  console.log(`${answers[answers_num]["example"]}`);
   console.log(" ");
 }
 
