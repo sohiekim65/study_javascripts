@@ -6,17 +6,23 @@ for (let i = 0; i < animals.length; i++) {
 }
 
 // for iterable 방식
+// for(variable of iterable){
+//     code block to be executed
+// }
 for (let animal of animals) {
   console.log(`${animal}`);
 }
+// dog
+// cat
+// bird
+// fish
+// lizard ==> 이렇게 하나씩 출력됨
+//
 // typeof animal
 // 'string'
 // animal.split("a")
 // (2) ['c', 't']
 
-// for(variable of iterable){
-//     code block to be executed
-// }
 const animals_obj = [
   //   animal,
   { name: "cat", species: "feline" },
