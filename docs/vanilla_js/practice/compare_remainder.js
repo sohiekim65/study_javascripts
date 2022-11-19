@@ -1,38 +1,44 @@
 // 문제
-// 1번부터 30번까지 출석번호가 붙어 있다. 교수님이 내준 특별과제를
-// 28명이 제출했는데, 그 중에서 제출 안 한 학생 2명의 출석번호를 출력
+// 수 10개를 입력받은 뒤, 이를 42로 나눈 나머지를 구한다.
+// 그 다음 서로 다른 나머지 값이 몇 개 있는지 출력
 
 // 입력
-// 30번을 반복문으로 돌려 inputs과 비교하였을 때 빠진 숫자 2개 출력
+// 입력받은 10개의 수를 42로 나눈 나머지가 서로 다른 갯수 출력
 
 // 주요 단어 영문 이름 선정
 //  입력 - input
-//  출석번호 -num
+//  나머지 - remainder
 //  출력 - output
 
+// 테스트 케이스
+// 39  --> 각 수를 42로 나눈 나머지 39, 40, 41, 0, 1, 2, 40, 41, 0, 1 이라서 결과값 6
+// 40
+// 41
+// 42
+// 43
+// 44
+// 82
+// 83
+// 84
+// 85
+
 // 입력
-// const fs = require("fs");
-// const filepath =
-//   process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
-// let inputs = fs
-//   .readFileSync(filepath)
-//   .toString()
-//   .trim()
-//   .split("\n")
-//   .map(Number);
+const fs = require("fs");
+const filepath =
+  process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
+let inputs = fs
+  .readFileSync(filepath)
+  .toString()
+  .trim()
+  .split("\n")
+  .map(Number);
 
-const array1 = ["a", "b", "c"];
-// array1.forEach((A) => console.log(A));
+let num = [];
+let count = 0;
 
-// forEach문을 여러 function으로 변환
-// forEach문 Arrow Function화
-let arrowFunction = (A, index) => {
-  console.log(`${A}, index ${index}`);
-};
-array1.forEach(arrowFunction);
-
-// forEach문 Noraml Function화
-function normalFunction(element) {
-  console.log(element);
+for (let i = 0; i < 10; i++) {
+  num[i] = inputs[i] % 42;
 }
-array1.forEach(normalFunction);
+
+let compare = num.filter((A, index) => num.indexOf(A) === index);
+console.log(compare.length);
