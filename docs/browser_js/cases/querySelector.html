@@ -37,16 +37,23 @@
       });
 
       // 2개의 list 출력
-      let queryList1 = document.querySelectorAll(".list");
+      let queryList = document.querySelectorAll(".list");
       console.log("list");
-      queryList1.forEach((item) => {
+      queryList.forEach((item) => {
         console.log(item);
       });
 
-      // list1의 item 출력
-      let queryListItem = document.querySelectorAll(".item");
-      console.log("item");
-      queryListItem.forEach((item) => {
+      // 과일 list의 item 출력
+      let fruitList = queryList[0].querySelectorAll(".item");
+      console.log("과일 item");
+      fruitList.forEach((item) => {
+        console.log(item);
+      });
+
+      // 회사 list의 item 출력
+      let ITList = queryList[1].querySelectorAll(".item");
+      console.log("회사 item");
+      ITList.forEach((item) => {
         console.log(item);
       });
     </script>
