@@ -30,30 +30,30 @@
     <script>
       // --------------실습 queryselector만 이용해서 위에서부터 다 찍히게
       // head, body 출력
-      let queryHtml = document.querySelectorAll("html > *");
-      console.log("html");
-      queryHtml.forEach((item, index) => {
+      let queryBody = document.querySelectorAll("body > *");
+      console.log("body");
+      queryBody.forEach((item, index) => {
         console.log(item);
       });
 
       // 2개의 list 출력
-      let queryList = document.querySelectorAll(".list");
+      let queryLists = document.querySelectorAll(".list");
       console.log("list");
-      queryList.forEach((item, index) => {
+      queryLists.forEach((item, index) => {
         console.log(item);
       });
 
       // 과일 list의 item 출력
-      let fruitList = queryList[0].querySelectorAll(".item");
+      let fruitLists = queryLists[0].querySelectorAll(".item");
       console.log("과일 item");
-      fruitList.forEach((item, index) => {
+      fruitLists.forEach((item, index) => {
         console.log(item);
       });
 
       // 회사 list의 item 출력
-      let ITList = queryList[1].querySelectorAll(".item");
+      let ITLists = queryLists[1].querySelectorAll(".item");
       console.log("회사 item");
-      ITList.forEach((item, index) => {
+      ITLists.forEach((item, index) => {
         console.log(item);
       });
 
@@ -61,10 +61,23 @@
 
       // 과일 list의 item 출력
       console.log("과일, 회사 items");
-      queryList.forEach((list, index) => {
+      queryLists.forEach((list, index) => {
         console.log(list);
-        fruitList.forEach((item, index) => {
+        fruitLists.forEach((item, index) => {
           console.log(item);
+        });
+        console.log(" ");
+      });
+
+      console.log("----------------- 3번째 -----------------");
+
+      queryLists.forEach((list, index) => {
+        console.log(`${index} : ${list.outerHTML}`);
+        // queryLists[0].querySelectorAll(".item");
+        // 위아래 동일한 코드
+        let queryItems = list.querySelectorAll(".item");
+        queryItems.forEach((item, index) => {
+          console.log(`${index} : ${item.outerHTML}`);
         });
         console.log(" ");
       });
