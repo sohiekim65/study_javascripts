@@ -32,29 +32,41 @@
       // head, body 출력
       let queryHtml = document.querySelectorAll("html > *");
       console.log("html");
-      queryHtml.forEach((item) => {
+      queryHtml.forEach((item, index) => {
         console.log(item);
       });
 
       // 2개의 list 출력
       let queryList = document.querySelectorAll(".list");
       console.log("list");
-      queryList.forEach((item) => {
+      queryList.forEach((item, index) => {
         console.log(item);
       });
 
       // 과일 list의 item 출력
       let fruitList = queryList[0].querySelectorAll(".item");
       console.log("과일 item");
-      fruitList.forEach((item) => {
+      fruitList.forEach((item, index) => {
         console.log(item);
       });
 
       // 회사 list의 item 출력
       let ITList = queryList[1].querySelectorAll(".item");
       console.log("회사 item");
-      ITList.forEach((item) => {
+      ITList.forEach((item, index) => {
         console.log(item);
+      });
+
+      console.log("----------------- 2번째 -----------------");
+
+      // 과일 list의 item 출력
+      console.log("과일, 회사 items");
+      queryList.forEach((list, index) => {
+        console.log(list);
+        fruitList.forEach((item, index) => {
+          console.log(item);
+        });
+        console.log(" ");
       });
     </script>
   </body>
