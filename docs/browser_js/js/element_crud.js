@@ -23,8 +23,15 @@ const productsData = [
   { title: "고구마칩", weight: 300 },
 ];
 
-let queryList = document.querySelector("#list");
-let products = `<div class="item">${productsData[0]["title"]} : ${productsData[0]["weight"]}<br/>
+let products2 = `<div class="item">${productsData[0]["title"]} : ${productsData[0]["weight"]}<br/>
 ${productsData[1]["title"]} : ${productsData[1]["weight"]} <br/>
 ${productsData[2]["title"]} : ${productsData[2]["weight"]}</div>`;
+// queryList.innerHTML = products2;
+
+// ------------ 2번째 -------------
+let queryList = document.querySelector("#list");
+let products = "";
+productsData.forEach((productsData, index) => {
+  products += `<div id="list">${productsData["title"]} : ${productsData["weight"]}</div>`;
+});
 queryList.innerHTML = products;
