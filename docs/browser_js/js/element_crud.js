@@ -16,7 +16,7 @@ let item = "<div class='item'>" + animal["name"] + animal["age"] + "</div>";
 item = `<div class="item">${animal["name"]} : ${animal["age"]}</div>`;
 queryApp.innerHTML = item;
 
-// 실습
+// 실습 snack
 const productsData = [
   { title: "감자칩", weight: 300 },
   { title: "칙촉", weight: 100 },
