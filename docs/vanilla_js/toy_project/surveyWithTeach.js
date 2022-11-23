@@ -43,7 +43,7 @@ let exampleList = [
 
 // 설문 별 응답 가능한 항목들
 
-const answers = [
+const questions_answers = [
   { questions_uid: "Q1", example_uid: "E1" },
   { questions_uid: "Q1", example_uid: "E2" },
   { questions_uid: "Q1", example_uid: "E3" },
@@ -63,17 +63,33 @@ const answers = [
   { questions_uid: "Q5", example_uid: "E3" },
 ];
 
-let i;
-let compare;
-
-for (i = 0; i < answers.length; i++) {
-  // let answer_string = // 매우 그렇다 그렇다 보통이다 이거 변수에 담아주기
-  if (compare != answers[i]["questions_uid"]) {
-    console.log(`!= : ${answers[i]["questions_uid"]}`);
-    console.log(`!= : ${answers[i]["example_uid"]}`);
+let question_compare;
+let idx;
+let polls = [];
+let questions = []; // questions and answers
+for (idx = 0; idx < questions_answers.length; idx++) {
+  if (question_compare != questions_answers[idx]["questions_uid"]) {
+    if (questions.length > 0) {
+      polls.push(questions);
+      questions = [];
+    }
+    questions.push(questions_answers[idx]["questions_uid"]);
+    questions.push(questions_answers[idx]["example_uid"]);
+    console.log(
+      `!= : ${questions_answers[idx]["questions_uid"]}, ${questions_answers[idx]["example_uid"]}`
+    );
   } else {
-    console.log(`== : ${answers[i]["example_uid"]}`);
+    questions.push(questions_answers[idx]["example_uid"]);
+    console.log(
+      `== : ${questions_answers[idx]["questions_uid"]}, ${questions_answers[idx]["example_uid"]}`
+    );
+    if (idx + 1 >= questions_answers.length) {
+      polls.push(questions);
+    }
   }
-  compare = answers[i]["questions_uid"];
+
+  question_compare = questions_answers[idx]["questions_uid"];
 }
-console.log(`answers.length : ${answers.length} i : ${i}`);
+for (let j = 0; j < polls.length; j++) {
+  console.log(polls[j]);
+}

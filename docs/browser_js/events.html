@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/events.css" />
+  </head>
+
+  <body>
+    <h3>Property 방식</h3>
+    <div onclick="alert('Click on Me!')">Click on Me! with alert()</div>
+    <div id="changetext" onclick="changeText()">
+      Click on Me! with own function
+    </div>
+
+    <h3>Listener 방식</h3>
+    <div id="clickalert">Click on Me! with alert()</div>
+
+    <h3>버튼을 누르면 위 문구가 바뀌는</h3>
+    <div id="targetText">Target Change Text</div>
+    <button id="buttonChangeText">Change Text</button>
+
+    <script src="./js/events.js"></script>
+  </body>
+</html>
