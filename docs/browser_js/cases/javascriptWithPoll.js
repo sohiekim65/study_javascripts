@@ -71,7 +71,7 @@ const answers = [
 //   if (question_compare == answers[idx]["questions_uid"]) {
 //     queryQuestion.innerHTML =
 //       questions_list[idx]["order"] + questions_list[idx]["question"];
-
+document.get;
 //     let button = `<input type="radio" name="button" id="button"></input>`;
 //     let label = `<label for="button"></label>`;
 //     queryAnswer.innerHTML =
@@ -86,13 +86,15 @@ const answers = [
 // }
 
 // body.addEventListener("load", init(), false);
-
+document.getElementById;
 let queryQuestion = document.querySelector("#questionList");
-// let queryAnswer = document.querySelector("#answerList");
+
 let question_compare;
 let idx;
 let polls = [];
+let count = 0; // 버튼 id
 let questions = []; // questions and answers
+
 for (idx = 0; idx < answers.length; idx++) {
   if (question_compare != answers[idx]["questions_uid"]) {
     if (questions.length > 0) {
@@ -119,9 +121,10 @@ for (let j = 0; j < polls.length; j++) {
   queryQuestion.innerHTML +=
     j + 1 + ". " + questions_list[j]["question"] + "</br>";
   for (let k = 1; k < polls[j].length; k++) {
-    let button = `<input type="radio" name="button" id="button"></input>`;
+    let button = `<input type="radio" name="button" id="${count}"></input>`;
     queryQuestion.innerHTML +=
-      button + "(" + k + ")" + example_list[k - 1]["example"] + "</br>";
+      button + "(" + k + ") " + example_list[k - 1]["example"] + "</br>";
+    count++;
   }
   queryQuestion.innerHTML += "</br>";
 }
