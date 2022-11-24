@@ -74,9 +74,6 @@ for (idx = 0; idx < questions_answers.length; idx++) {
     if (questions.length > 0) {
       polls.push(questions);
       questions = [];
-    } else if (question_compare) {
-      polls.push(questions);
-      questions = [];
     }
     // console.log(`!== : ${questions_answers[idx]["questions_uid"]}`);
     // console.log(`!== : ${questions_answers[idx]["answer_uid"]}`);
