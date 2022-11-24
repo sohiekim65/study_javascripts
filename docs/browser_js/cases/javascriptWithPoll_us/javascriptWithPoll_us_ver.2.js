@@ -118,16 +118,18 @@ for (idx = 0; idx < questions_answers.length; idx++) {
 
 function getQuestionByUid(questions_uid) {
   let question_desc;
-  questions_list.forEach((question, index) => {
-    if (questions_uid == question["questions_uid"]) {
-      question_desc = question["question"];
+  questions_list.forEach((questions_list, index) => {
+    if (questions_uid == questions_list["questions_uid"]) {
+      question_desc = questions_list["question"];
     }
   });
   return question_desc;
 }
 
 for (poll of polls) {
-  console.log(`${poll["questions_uid"]}`); // poll == polls[idx]
+  console.log(
+    `${poll["questions_uid"]}. ${getQuestionByUid(poll["questions_uid"])}`
+  ); // poll == polls[idx]
   let answer_uids = poll["answer_uid"];
   answer_uids.forEach((answer_uid, index) => {
     // answers
