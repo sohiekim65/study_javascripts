@@ -71,7 +71,6 @@ const answers = [
 //   if (question_compare == answers[idx]["questions_uid"]) {
 //     queryQuestion.innerHTML =
 //       questions_list[idx]["order"] + questions_list[idx]["question"];
-document.get;
 //     let button = `<input type="radio" name="button" id="button"></input>`;
 //     let label = `<label for="button"></label>`;
 //     queryAnswer.innerHTML =
