@@ -178,13 +178,10 @@ for (poll of polls) {
 let queryNext = document.querySelector("#next");
 queryNext.addEventListener("click", setPollContent);
 
-let index = -1;
+let index = 0;
 function setPollContent() {
-  index++;
-  if (index + 1 > polls.length) {
+  if (index > polls.length - 1) {
     alert("마지막 페이지입니다.");
-    index = polls.length - 1; // 마지막 페이지 index++ 원상복귀
-    return;
   }
   let queryContent = document.querySelector("#poll");
   // polls[0]["questions_uid"]; // 설문 문항
@@ -205,28 +202,26 @@ function setPollContent() {
       `<div>${button} (${index + 1}) ${getAnswerByUid(answer_uid)}</div>`;
   });
   queryContent.innerHTML = desc;
+  index++;
 }
 
 let queryPre = document.querySelector("#pre");
 queryPre.addEventListener("click", setPrePollContent);
 
 function setPrePollContent() {
-  index--;
-  if (index < 0) {
-    alert("첫번째 페이지입니다.");
-    index = 0; // 첫번째 페이지 index 원상복귀
-    return;
+  if (index < 2) {
+    alert("이전 항목이 없습니다.");
   }
   let queryContent = document.querySelector("#poll");
-  let desc = `<div>${index + 1}. ${getQuestionByUid(
-    polls[index]["questions_uid"]
+  let desc = `<div>${index - 1}. ${getQuestionByUid(
+    polls[index - 2]["questions_uid"]
   )}</div>`;
-  polls[index]["answer_uid"].forEach((answer_uid, index) => {
+  polls[index - 2]["answer_uid"].forEach((answer_uid, index) => {
     let button = `<input type="radio" name="button" id="pre${index}"></input>`;
     desc =
       desc +
       `<div>${button} (${index + 1}) ${getAnswerByUid(answer_uid)}</div>`;
   });
   queryContent.innerHTML = desc;
+  index--;
 }
-// index 0부터.....
