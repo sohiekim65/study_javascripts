@@ -116,23 +116,117 @@ for (idx = 0; idx < questions_answers.length; idx++) {
 // Q2. 주문시 직원은 고객님께 친절 하였습니까?
 // ...
 
-function getQuestionByUid(questions_uid) {
-  let question_desc;
-  questions_list.forEach((questions_list, index) => {
-    if (questions_uid == questions_list["questions_uid"]) {
-      question_desc = questions_list["question"];
+// 설문 문항 function
+// function getQuestionByUid(question_uid) {
+//   let question_desc;
+//   questions_list.forEach((questions_list, index) => {
+//     if (question_uid == questions_list["questions_uid"]) {
+//       question_desc = questions_list["question"];
+//     }
+//   });
+//   return question_desc;
+// }
+// ^^^위 코드와 동일한 반복문^^^
+function getQuestionByUid(question_uid) {
+  //question_uid = 'Q1'
+  let question_desc = "";
+  for (question of questions_list) {
+    if (question["questions_uid"] === question_uid) {
+      question_desc = question["question"];
+      break;
     }
-  });
+  }
   return question_desc;
 }
 
+// 설문 답항 function
+// function getAnswerByUid(answer_uid) {
+//   let answer_desc;
+//   answer_list.forEach((answer_list, index) => {
+//     if (answer_uid == answer_list["answer_uid"]) {
+//       answer_desc = answer_list["answer"];
+//     }
+//   });
+//   return answer_desc;
+// }
+// ^^^위 코드와 동일한 반복문^^^
+function getAnswerByUid(answer_uid) {
+  let answer_desc = "";
+  for (answer of answer_list) {
+    if (answer["answer_uid"] === answer_uid) {
+      answer_desc = answer["answer"];
+      break;
+    }
+  }
+  return answer_desc;
+}
+
+// 설문과 답항 출력
 for (poll of polls) {
-  console.log(
-    `${poll["questions_uid"]}. ${getQuestionByUid(poll["questions_uid"])}`
-  ); // poll == polls[idx]
+  let question_desc = getQuestionByUid(poll["questions_uid"]);
+  // console.log(`${poll["questions_uid"]}. ${question_desc}`); // poll == polls[idx]
   let answer_uids = poll["answer_uid"];
   answer_uids.forEach((answer_uid, index) => {
     // answers
-    console.log(`${index + 1}. ${answer_uid}`);
+    // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
   });
 }
+
+// Event handlers
+// Next 클릭 시 순서 있게 설문 표시
+// 대상 변수는 polls
+let queryNext = document.querySelector("#next");
+queryNext.addEventListener("click", setPollContent);
+
+let index = -1;
+function setPollContent() {
+  index++;
+  if (index + 1 > polls.length) {
+    alert("마지막 페이지입니다.");
+    index = polls.length - 1; // 마지막 페이지 index++ 원상복귀
+    return;
+  }
+  let queryContent = document.querySelector("#poll");
+  // polls[0]["questions_uid"]; // 설문 문항
+  // polls[0]["answer_uid"]; // 설문 답항 묶음
+  // 1. 매장 상태가 좋은가요?
+  //  (1) 예
+  //  (2) 아니다
+  // console.log(getQuestionByUid(polls[index]["questions_uid"]));
+  let desc = `<div>${index + 1}. ${getQuestionByUid(
+    polls[index]["questions_uid"]
+  )}</div>`;
+  polls[index]["answer_uid"].forEach((answer_uid, index) => {
+    // answers
+    // console.log(`${index + 1}. ${getAnswerByUid(answer_uid)}`);
+    let button = `<input type="radio" name="button" id="${index}"></input>`;
+    desc =
+      desc +
+      `<div>${button} (${index + 1}) ${getAnswerByUid(answer_uid)}</div>`;
+  });
+  queryContent.innerHTML = desc;
+}
+
+let queryPre = document.querySelector("#pre");
+queryPre.addEventListener("click", setPrePollContent);
+
+function setPrePollContent() {
+  index--;
+  if (index < 0) {
+    alert("첫번째 페이지입니다.");
+    index = 0; // 첫번째 페이지 index 원상복귀
+    return;
+  }
+  let queryContent = document.querySelector("#poll");
+  let desc = `<div>${index + 1}. ${getQuestionByUid(
+    polls[index]["questions_uid"]
+  )}</div>`;
+  polls[index]["answer_uid"].forEach((answer_uid, index) => {
+    let button = `<input type="radio" name="button" id="pre${index}"></input>`;
+    desc =
+      desc +
+      `<div>${button} (${index + 1}) ${getAnswerByUid(answer_uid)}</div>`;
+  });
+  queryContent.innerHTML = desc;
+}
+// index 0부터.....
