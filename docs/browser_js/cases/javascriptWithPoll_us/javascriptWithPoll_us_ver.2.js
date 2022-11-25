@@ -210,7 +210,7 @@ queryPre.addEventListener("click", setPrePollContent);
 
 function setPrePollContent() {
   if (index < 2) {
-    alert("이전 항목이 없습니다.");
+    alert("첫번째");
   }
   let queryContent = document.querySelector("#poll");
   let desc = `<div>${index - 1}. ${getQuestionByUid(
