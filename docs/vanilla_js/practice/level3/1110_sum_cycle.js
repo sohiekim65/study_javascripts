@@ -28,11 +28,14 @@ let inputs = fs.readFileSync(filepath).toString().trim().split("\n");
 let first = parseInt(inputs);
 let i = 0;
 
-while (true) {
-  let sum = parseInt(inputs / 10 + (inputs % 10));
-  inputs = (inputs % 10) * 10 + (sum % 10);
-  i++;
+function cycle() {
+  while (true) {
+    let sum = parseInt(inputs / 10 + (inputs % 10));
+    inputs = (inputs % 10) * 10 + (sum % 10);
+    i++;
 
-  if (first === inputs) break;
+    if (first === inputs) break;
+  }
+  return i;
 }
-console.log(i);
+console.log(cycle());

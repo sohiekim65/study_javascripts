@@ -32,3 +32,18 @@ let elementById = document.getElementById("selector");
 queryTitle.style.color = "blue";
 queryTitle.style.fontSize = "2rem";
 queryTitle.style.backgroundColor = "rgba(255,0,0,0.5)";
+
+// queryTitle.className = "tempName"
+// 'tempName'
+// queryTitle.className
+// 'tempName'
+// queryTitle.id
+// 'title'
+
+let queryContent = document.querySelector("#contentId");
+// queryContent
+// <input type=​"text" name=​"content" id=​"contentId" class=​"content-class" value=​"Banana">​
+// queryContent.value
+// 'Banana'
+// queryContent.value = "Apple"
+// 'Apple'
