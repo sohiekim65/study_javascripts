@@ -46,7 +46,6 @@ queryInputDesc.addEventListener("click", (event) => {
     event.target.parentElement.parentElement.parentElement.remove();
   } else if (event.target.innerHTML == "favorite_border") {
     event.target.innerHTML = "favorite";
-    return;
   } else if (event.target.innerHTML == "favorite") {
     event.target.innerHTML = "favorite_border";
   } else {
