@@ -10,6 +10,9 @@ let newItem = `<li>
                 <div>
                     <input type="checkbox" name="" id="item3">
                     <label for="item3">item three</label>
+                    <span>
+                    <i class="material-icons delete">delete</i>
+                  </span>
                 </div>
             </li>`;
 
@@ -19,7 +22,7 @@ queryItemList.addEventListener("click", (event) => {
     alert(`clicked ${event.target.id} : ${event.target.value}`);
   }
   if (event.target.innerHTML == "delete") {
-    event.target.remove();
+    event.target.parentElement.parentElement.parentElement.remove();
   }
 }); // 상위 element에 event 설정(하위도 모두 event 걸림 - bubble방식)
 
@@ -28,7 +31,7 @@ queryItemList.addEventListener("click", (event) => {
 // queryItemList.innerHTML = queryItemList.innerHTML + newItem;
 
 // insertAdjacentHTML로 HTML 넣어주기
-// queryItemList.insertAdjacentHTML("beforeend", newItem);
+queryItemList.insertAdjacentHTML("beforeend", newItem);
 // queryItemList.insertAdjacentHTML("beforebegin", newItem);
 
 // 원래 걸었던 이벤트 갱신 => 기존 이벤트는 사라졌음

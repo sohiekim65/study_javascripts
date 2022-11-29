@@ -24,11 +24,17 @@
 const fs = require("fs");
 const filepath =
   process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
-let inputs = fs.readFileSync(filepath).toString().trim();
+let inputs = fs.readFileSync(filepath).toString().trim().split("\n");
 
-let inputs_count = inputs[0];
-let contents = inputs[1].split(" ");
+let inputs_count = parseInt(inputs[0]);
+let str;
+let contents = [];
+let contents_count = [];
 for (let i = 1; i <= inputs_count; i++) {
-  contents[i] = inputs[i];
-  console.log(contents);
+  contents = inputs[i].split(" ")[i];
+  contents_count = inputs[i].split(" ")[i - 1];
+  for (let j = 0; j < contents_count; j++) {
+    str = contents[j];
+    console.log(str);
+  }
 }
