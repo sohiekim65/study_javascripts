@@ -57,10 +57,12 @@ ul {
 
 .item {
   margin-right: auto;
+  flex-direction: column;
 }
 
 .icon {
   margin-left: auto;
+  flex-direction: column;
 }
 
 #delete {

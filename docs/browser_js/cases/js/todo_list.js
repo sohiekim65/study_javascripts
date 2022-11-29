@@ -18,14 +18,13 @@ queryBtn.addEventListener("click", (event) => {
 
 // input
 function inputDesc() {
-  let inputText = queryInput.value;
   if (queryInput.value == "") {
     alert("내용을 입력해주세요.");
     return;
   }
   let newItem = `<li class="list">
                 <span class="item">
-                ${inputText}
+                ${queryInput.value}
               </span>
               <span class="icon">
                 <span class="delete">
