@@ -26,15 +26,19 @@ const filepath =
   process.platform === "linux" ? "/dev/stdin" : "docs/vanilla_js/input.txt";
 let inputs = fs.readFileSync(filepath).toString().trim().split("\n");
 
-let inputs_count = parseInt(inputs[0]);
-let str;
-let contents = [];
-let contents_count = [];
-for (let i = 1; i <= inputs_count; i++) {
-  contents = inputs[i].split(" ")[i];
-  contents_count = inputs[i].split(" ")[i - 1];
-  for (let j = 0; j < contents_count; j++) {
-    str = contents[j];
-    console.log(str);
+let count = parseInt(inputs[0]);
+let string_count;
+let string = [];
+let result = "";
+
+for (let i = 1; i <= count; i++) {
+  string_count = inputs[i].split(" ")[0];
+  string = inputs[i].split(" ")[1];
+  for (let j = 0; j < string.length; j++) {
+    for (let k = 0; k < parseInt(string_count); k++) {
+      result += string[j];
+    }
   }
+  result += "\n";
 }
+console.log(result);
